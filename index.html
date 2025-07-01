@@ -14,7 +14,7 @@
     }
 
     body {
-      background: #000;
+      background: #000; /* Černé pozadí */
       color: white;
       overflow-x: hidden;
     }
@@ -53,6 +53,12 @@
 
     nav a:hover {
       color: #FFD700;
+    }
+
+    /* Merch odkaz stejný jako ostatní - bílý, bez speciálního zvýraznění */
+    nav a[href="https://xmp.lol"] {
+      color: white;
+      font-weight: bold;
     }
 
     .stats {
@@ -148,56 +154,16 @@
       0% {transform: translateY(0);}
       100% {transform: translateY(100vh);}
     }
-
-    /* Video background container (YouTube API will replace inner content) */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Unmute button styling */
-    #unmuteBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 10;
-      padding: 12px 22px;
-      background: #FFD700;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      color: black;
-      box-shadow: 0 0 10px #FFD700aa;
-      user-select: none;
-      transition: background 0.3s;
-    }
-
-    #unmuteBtn:hover {
-      background: #ffc400;
-    }
-
   </style>
 </head>
 <body>
-
-<!-- Video background container with id 'player' for YouTube API -->
-<div class="video-bg" id="player"></div>
-
-<!-- Gradient overlay for lepší čitelnost -->
-<div class="overlay-gradient"></div>
 
 <header>
   <nav>
     <a href="#">Domů</a>
     <a href="https://discord.gg/xmp" target="_blank">Discord</a>
     <a href="https://xmpclicker.github.io/xmp/" target="_blank">XMP Clicker</a>
+    <a href="https://xmp.lol" target="_blank">Merch</a>
   </nav>
 
   <div class="logo">XMP RP</div>
@@ -226,9 +192,6 @@
   &copy; 2025 XMP RP | Seriózní roleplay komunita | WL Only
 </footer>
 
-<!-- Tlačítko pro zapnutí zvuku -->
-<button id="unmuteBtn">Zapnout zvuk</button>
-
 <!-- Sněhové vločky -->
 <script>
   for (let i = 0; i < 30; i++) {
@@ -240,43 +203,6 @@
     snow.style.fontSize = 10 + Math.random() * 20 + "px";
     document.body.appendChild(snow);
   }
-</script>
-
-<!-- YouTube iframe API -->
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  let player;
-
-  // Funkce volaná, když je YouTube API připravené
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '100%',
-      width: '100%',
-      playerVars: {
-        listType: 'playlist',
-        list: 'PLyJxqDNoLbVzyCTkk7pUjQK6XDIThJuAF',
-        autoplay: 1,
-        controls: 0,
-        modestbranding: 1,
-        loop: 1,
-        rel: 0,
-        mute: 1,          // spustit ztlumené
-        playlist: 'PLyJxqDNoLbVzyCTkk7pUjQK6XDIThJuAF'
-      },
-      events: {
-        onReady: event => event.target.playVideo(),
-      }
-    });
-  }
-
-  const unmuteBtn = document.getElementById('unmuteBtn');
-  unmuteBtn.addEventListener('click', () => {
-    if (player) {
-      player.unMute();
-      player.playVideo();
-      unmuteBtn.style.display = 'none'; // zmizí po zapnutí zvuku
-    }
-  });
 </script>
 
 </body>

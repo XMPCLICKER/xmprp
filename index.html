@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XMP Roleplay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 5em;
+      color: #FFD700;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px black;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      z-index: 2;
+      position: relative;
+      font-size: 1.2em;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FFD700;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin: 30px auto;
+      font-size: 1.5em;
+      font-weight: bold;
+      text-shadow: 2px 2px 6px black;
+    }
+
+    .stats span {
+      color: #FFD700;
+    }
+
+    .cta-buttons {
+      margin-top: 40px;
+    }
+
+    .cta-buttons a, .cta-buttons button {
+      background: #FFD700;
+      color: black;
+      text-decoration: none;
+      padding: 14px 30px;
+      margin: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      border-radius: 6px;
+      display: inline-block;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-buttons a:hover, .cta-buttons button:hover {
+      background: #ffc400;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 700px;
+      border-radius: 12px;
+      border: 2px solid #FFD700;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .box h2 {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 2em;
+    }
+
+    .wl-box {
+      background: #FFD700;
+      color: black;
+      padding: 25px;
+      max-width: 350px;
+      margin: 30px auto;
+      border-radius: 12px;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 0 20px #FFD700aa;
+      z-index: 2;
+      position: relative;
+      font-size: 1.1em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #000;
+      color: #aaa;
+      font-size: 1em;
+      position: relative;
+      z-index: 2;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      user-select: none;
+      animation: fall linear infinite;
+      z-index: 3;
+    }
+
+    @keyframes fall {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(100vh);}
+    }
+
+    /* Video background container (YouTube API will replace inner content) */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Unmute button styling */
+    #unmuteBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      padding: 12px 22px;
+      background: #FFD700;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;
+      box-shadow: 0 0 10px #FFD700aa;
+      user-select: none;
+      transition: background 0.3s;
+    }
+
+    #unmuteBtn:hover {
+      background: #ffc400;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Video background container with id 'player' for YouTube API -->
+<div class="video-bg" id="player"></div>
+
+<!-- Gradient overlay for lepší čitelnost -->
+<div class="overlay-gradient"></div>
+
+<header>
+  <nav>
+    <a href="#">Domů</a>
+    <a href="https://discord.gg/xmp" target="_blank">Discord</a>
+    <a href="https://xmpclicker.github.io/xmp/" target="_blank">XMP Clicker</a>
+  </nav>
+
+  <div class="logo">XMP RP</div>
+
+  <div class="stats">
+    <div><span>Whitelist</span> Only</div>
+    <div><span>Seriózní</span> Roleplay</div>
+  </div>
+
+  <div class="cta-buttons">
+    <a href="https://discord.gg/xmp" target="_blank">Připojit se na Discord</a>
+    <button onclick="alert('HHAHA TO COS SIS MYSLEL, VĚD TÍ JSOU JENOM TŘI')">Zažádat o whitelist</button>
+  </div>
+</header>
+
+<section class="box">
+  <h2>Co je XMP?</h2>
+  <p><strong>XMP Roleplay</strong> je seriózní whitelistový Minecraft RP server, kde dbáme na kvalitu, atmosféru a věrné roleplay zážitky. Vše začíná na našem Discordu – připoj se a zažádej si o whitelist!</p>
+</section>
+
+<section class="wl-box">
+  🌟<br>Whitelist je POVINNÝ<br><small>Žádosti přijímáme pouze přes Discord</small>
+</section>
+
+<footer>
+  &copy; 2025 XMP RP | Seriózní roleplay komunita | WL Only
+</footer>
+
+<!-- Tlačítko pro zapnutí zvuku -->
+<button id="unmuteBtn">Zapnout zvuk</button>
+
+<!-- Sněhové vločky -->
+<script>
+  for (let i = 0; i < 30; i++) {
+    const snow = document.createElement("div");
+    snow.classList.add("snowflake");
+    snow.innerHTML = "❄";
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.animationDuration = 2 + Math.random() * 5 + "s";
+    snow.style.fontSize = 10 + Math.random() * 20 + "px";
+    document.body.appendChild(snow);
+  }
+</script>
+
+<!-- YouTube iframe API -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let player;
+
+  // Funkce volaná, když je YouTube API připravené
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '100%',
+      width: '100%',
+      playerVars: {
+        listType: 'playlist',
+        list: 'PLyJxqDNoLbVzyCTkk7pUjQK6XDIThJuAF',
+        autoplay: 1,
+        controls: 0,
+        modestbranding: 1,
+        loop: 1,
+        rel: 0,
+        mute: 1,          // spustit ztlumené
+        playlist: 'PLyJxqDNoLbVzyCTkk7pUjQK6XDIThJuAF'
+      },
+      events: {
+        onReady: event => event.target.playVideo(),
+      }
+    });
+  }
+
+  const unmuteBtn = document.getElementById('unmuteBtn');
+  unmuteBtn.addEventListener('click', () => {
+    if (player) {
+      player.unMute();
+      player.playVideo();
+      unmuteBtn.style.display = 'none'; // zmizí po zapnutí zvuku
+    }
+  });
+</script>
+
+</body>
+</html>
